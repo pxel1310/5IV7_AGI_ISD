@@ -16,10 +16,9 @@ class Client(threading.Thread):
     def __str__(self):
         return str(self.id) + " " + str(self.address)
     
-    def run(self):
+    def run(self, dataArr = []):
 
-        dataArr = []
-        user = []
+        
         while self.signal:
             try:
                 data = self.socket.recv(32)
@@ -37,12 +36,8 @@ class Client(threading.Thread):
                 
                 print(f"{arbat[1]} obtuvo: {arbat[0]} puntos")
                 maxVa = max(dataArr)
-                puntaje= arbat[0]
-                
-                if maxVa > puntaje:
-                    user.clear()
-                    user.append(arbat[1])
-                    print(f'El usuario {user[0]} su mayor puntuacion es de {maxVa} puntos')
+     
+                print(f'El usuario {arbat[1]} su mayor puntuacion es de {maxVa} puntos')
                 
                 print("-----------------")
                 for client in connections:

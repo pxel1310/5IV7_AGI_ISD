@@ -16,7 +16,7 @@ def receive(socket, signal):
         try:
             data = socket.recv(32)
         except:
-            print("Fuis desconectado")
+            print("Se fue xd, del servidor")
             signal = False
             break
 
